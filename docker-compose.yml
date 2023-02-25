@@ -1,0 +1,27 @@
+version: "3"
+services:
+  gitlab:
+    container_name: gitlab
+#    image: gitlab/gitlab-ce:13.5.3-ce.0 #inicial version , recover backup.
+#wait for http://localhost:8080/admin/background_migrations to be clean every step before doing backup
+    image: gitlab/gitlab-ce:13.8.8-ce.0 
+#    image: gitlab/gitlab-ce:13.12.15-ce.0 #bk
+#    image: gitlab/gitlab-ce:14.0.12-ce.0 #bk
+#    image: gitlab/gitlab-ce:14.3.6-ce.0 #bk
+#    image: gitlab/gitlab-ce:14.9.5-ce.0 #may need to rework the permissions on /var/opt/gitlab/postgresql/data
+#    image: gitlab/gitlab-ce:14.10.5-ce.0
+#    image: gitlab/gitlab-ce:15.0.5-ce.0
+#    image: gitlab/gitlab-ce:15.4.6-ce.0
+#    image: gitlab/gitlab-ce:15.7.3-ce.0
+#una vez estamos en la ultima version , podemos meter este env
+#    environment:
+#      GITLAB_SKIP_UNMIGRATED_DATA_CHECK: true
+    ports:
+      - "443:443"
+      - "8080:80"
+      - "22:22"
+    volumes:
+     - 'e:/VM/gitlab/config:/etc/gitlab'
+     - 'e:/VM/gitlab/logs:/var/log/gitlab'
+#     - 'e:/VM/gitlab/data:/var/opt/gitlab'
+    restart: unless-stopped

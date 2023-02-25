@@ -1,0 +1,14 @@
+version: "3"
+services:
+  gitlab:
+    container_name: gitlab
+    image: gitlab/gitlab-ce:15.4.6-ce.0
+    ports:
+      - "443:443"
+      - "$HTTP:80"
+      - "22:22"
+    volumes:
+     - '$CONFIG:/etc/gitlab'
+     - '$LOGS:/var/log/gitlab'
+     - '$BACKUPS:/var/opt/gitlab/backups'
+    restart: unless-stopped
