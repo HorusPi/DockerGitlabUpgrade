@@ -1,5 +1,5 @@
 @echo off
-REM este script sube la version del gitlab de la 13.5.3 a la ultima version en el momento de escribirlo , 15.7.5. Para ver las versiones necesarias para migrar a ultima plataforma , mirar https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/?current=13.5.7&distro=docker&auto=true&edition=ce
+REM este script sube la version del gitlab de la 13.5.3 a la ultima version en el momento de escribirlo , 15.9.1. Para ver las versiones necesarias para migrar a ultima plataforma , mirar https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/?current=13.5.7&distro=docker&auto=true&edition=ce
 cd E:\VM\gitlab\
 copy E:\Respaldos\01-docker-compose_13_8_8.yml E:\VM\gitlab\docker-compose.yml /Y 
 echo %DATE% %TIME% Levantando v 13.8.8
@@ -119,7 +119,7 @@ TIMEOUT /T 300
  :migrado_15_4_6
 
 
-copy E:\Respaldos\10-docker-compose_15_9_1.yml E:\VM\gitlab\docker-compose.yml /Y
+copy E:\Respaldos\09-docker-compose_15_9_1.yml E:\VM\gitlab\docker-compose.yml /Y
 docker compose --env-file %org%\gitlab.env up -d
 echo 11 - Esperamos Esperamos 5 minutos para que haga sus migraciones
 TIMEOUT /T 300
